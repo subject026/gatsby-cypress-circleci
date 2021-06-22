@@ -1,4 +1,4 @@
-FROM node:14.17.0 as node
+FROM cypress/included:7.5.0
 
 WORKDIR /app
 
@@ -8,6 +8,4 @@ RUN yarn
 
 RUN yarn build
 
-FROM cypress/included:10
-COPY --from=node /app .
-CMD "yarn" "test:ci"
+CMD "yarn test:ci"
