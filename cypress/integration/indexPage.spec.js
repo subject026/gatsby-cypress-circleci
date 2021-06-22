@@ -1,7 +1,7 @@
 import "cypress-axe";
 
 beforeEach(() => {
-  cy.visit(`http://localhost:${Cypress.env('MODE') === 'test' ? 9000 : 8000}`);
+  cy.visit(`http://localhost:${Cypress.env('MODE') === 'development' ? 8000 : 9000}`);
   cy.injectAxe();
 });
 

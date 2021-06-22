@@ -56,6 +56,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test:dev": "cypress open",
-    "test:ci": "cypress run --env MODE=test"
+    "test:ci": "cypress run --env MODE=development"
   }
 }
