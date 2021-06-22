@@ -8,4 +8,4 @@ RUN yarn
 
 RUN yarn build
 
-CMD "yarn test:ci"
+CMD "yarn serve -d && yarn test:ci"
