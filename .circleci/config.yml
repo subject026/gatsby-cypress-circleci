@@ -1,0 +1,22 @@
+version: 2.1
+jobs:
+  test:
+    machine:
+      image: ubuntu-2004:202104-01
+    steps:
+      - checkout
+      - run:
+          name: test stuff
+          command: |
+            docker build . -t cypress_docker
+            docker run cypress_docker
+          # name: actually run tests
+          # command: |
+          #   sudo yarn
+          #   sudo yarn start
+          #   sudo yarn test:e2e
+
+workflows:
+  build_and_test:
+    jobs:
+      - test
