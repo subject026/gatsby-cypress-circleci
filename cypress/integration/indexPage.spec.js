@@ -1,16 +1,17 @@
 import "cypress-axe";
 
-beforeEach(() => {
-  cy.visit(`http://localhost:${Cypress.env('MODE') === 'development' ? 8000 : 9000}`);
-  cy.injectAxe();
-});
+// beforeEach(() => {
+// });
 
 describe("My First Test", () => {
   it("Does not do much!", () => {
     expect(true).to.equal(true);
   });
-
+  
   it("Homepage a11y", () => {
+    cy.visit("http://localhost:8000");
+    cy.injectAxe();
+    cy.checkA11y();
     // cy.configureAxe({
     //   branding: {
     //     brand: String,
@@ -21,6 +22,5 @@ describe("My First Test", () => {
     //   rules: [Object],
     //   locale: Object
     // });
-    cy.checkA11y();
   });
 });
