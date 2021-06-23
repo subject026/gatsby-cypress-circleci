@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "concurrently": "^6.2.0",
     "gatsby": "^3.6.2",
     "gatsby-plugin-feed": "^3.6.0",
     "gatsby-plugin-gatsby-cloud": "^2.6.1",
@@ -30,7 +31,8 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75"
+    "typeface-montserrat": "0.0.75",
+    "wait-on": "^5.3.0"
   },
   "devDependencies": {
     "axe-core": "^4.2.3",
@@ -51,16 +53,17 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -p 5000",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "prod": "gatsby build && gatsby serve",
+    "serve": "gatsby serve -p 5000",
+    "prod": "gatsby build && gatsby serve -p 5000",
     "clean": "gatsby clean",
     "test:dev": "cypress open",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
-    "test:ci": "start-server-and-test develop http://localhost:8000 cy:run"
+    "test:e2e": "start-server-and-test develop http://localhost:5000 cy:open",
+    "test:ci": "concurrently \"yarn test:wait\" \"yarn develop\" ",
+    "test:wait": " wait-on http://localhost:5000 && yarn cy:run"
   }
 }
