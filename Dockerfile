@@ -6,4 +6,4 @@ COPY . .
 
 RUN yarn
 
-CMD "yarn test:ci"
+CMD "yarn test:e2e"

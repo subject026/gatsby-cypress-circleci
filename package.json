@@ -62,7 +62,7 @@
     "test:dev": "cypress open",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test:e2e": "start-server-and-test develop http://localhost:5000 cy:open",
+    "test:e2e": "start-server-and-test develop http://localhost:5000 cy:run",
     "test:ci": "concurrently \"yarn test:wait\" \"yarn develop\" ",
     "test:wait": " wait-on http://localhost:5000 && yarn cy:run"
   }
