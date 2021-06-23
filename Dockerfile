@@ -6,6 +6,4 @@ COPY . .
 
 RUN yarn
 
-RUN yarn build
-
-CMD "yarn serve -d && yarn test:ci"
+CMD "yarn test:ci"
