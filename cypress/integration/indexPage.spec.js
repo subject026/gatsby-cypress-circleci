@@ -6,7 +6,12 @@ import "cypress-axe";
 describe("Accessibility tests", () => {
   beforeEach(() => {
     cy.visit("/").get("main").injectAxe()
+  });
+  
+  it("true is true", () => {
+    expect(true).to.equal(true)
   })
+
   it("Has no detectable accessibility violations on load", () => {
     cy.checkA11y()
   })
